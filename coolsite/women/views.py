@@ -5,19 +5,19 @@ from django.shortcuts import render
 # Create your views here.
 
 def main(request):
-    return HttpResponse('<h1>Добро-пожаловать на сервер "Шизофрения"</h1>')
+    return HttpResponse('<h1>Добро-пожаловать на CoolSite</h1>')
 
 def one(request):
-    return HttpResponse('<h1> Это как-бы вторая страница </h1><br>'
+    return HttpResponse('<h1> Вторая страница </h1><br>'
                         '<h3>:)</h3>')
 
 def two(request):
-    return HttpResponse('<h1> Это как-бы третья страница </h1><br>'
+    return HttpResponse('<h1> Третья страница </h1><br>'
                         '<h3>:)</h3>')
 
 def student(request, student_id):
     if student_id > 13 or student_id < 1:
-        return HttpResponse(f' <h1> Такой студент у нас не проживает :( </h1>')
+        return HttpResponse(f' <h1> Такого студент у нас нет:( </h1>')
     else:
         return HttpResponse(f' <h1> Студент № {student_id}</h1><br>'
                             f'<h2>{students[student_id]}</h2><br>'
@@ -49,7 +49,7 @@ geburgstag = {
     3: '30.11.2004',
     4: '31.04.2004',
     5: '09.01.2004',
-    6: '02.09.2004',
+    6: '09.09.2004',
     7: '21.03.988',
     8: '14.06.2004',
     9: '05.12.2004',
