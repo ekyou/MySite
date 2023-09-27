@@ -9,15 +9,15 @@ def main(request):
 
 def one(request):
     return HttpResponse('<h1> Вторая страница </h1><br>'
-                        '<h3>:)</h3>')
+                        '<h3>Здесь пусто</h3>')
 
 def two(request):
     return HttpResponse('<h1> Третья страница </h1><br>'
-                        '<h3>:)</h3>')
+                        '<h3>Здесь пусто</h3>')
 
 def student(request, student_id):
     if student_id > 13 or student_id < 1:
-        return HttpResponse(f' <h1> Такого студент у нас нет:( </h1>')
+        return HttpResponse(f' <h1> Такого студента у нас нет:( </h1>')
     else:
         return HttpResponse(f' <h1> Студент № {student_id}</h1><br>'
                             f'<h2>{students[student_id]}</h2><br>'
