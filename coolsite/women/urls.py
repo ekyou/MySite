@@ -25,4 +25,5 @@ urlpatterns = [
     path('two/', two),
     path('student/<int:student_id>/', student),
     path('slug/', slug),
+    path('slug/<slug:slug1>/', slug),
 ]

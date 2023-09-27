@@ -17,15 +17,16 @@ def two(request):
 
 def student(request, student_id):
     if student_id > 13 or student_id < 1:
-        return HttpResponse(f' <h1> Такого студента у нас нет:( </h1>')
+        return HttpResponse(f' <h1> Такого студента у нас нет</h1>')
     else:
         return HttpResponse(f' <h1> Студент № {student_id}</h1><br>'
                             f'<h2>{students[student_id]}</h2><br>'
                             f'<h2>{geburgstag[student_id]}</h2>')
 
-def slug(request):
+def slug(request, slug1):
     return HttpResponse('<h1>Взгляни в адресную строку после "/"</h1>'
-                        '<h2>Это метод Slug :3</h2')
+                        '<h2>Это метод Slug :3</h2>'
+                        f'<h1>{slug1}</h1>')
 
 students = {
     1:"Андронов Назар",
