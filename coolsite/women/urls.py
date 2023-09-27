@@ -19,11 +19,14 @@ from django.urls import path
 
 from women.views import *
 
+from women.views import pageNotFound
+
 urlpatterns = [
     path('', main),
     path('one/', one),
     path('two/', two),
     path('student/<int:student_id>/', student),
-    path('slug/', slug),
     path('slug/<slug:slug1>/', slug),
 ]
+
+handler404 = pageNotFound

@@ -1,11 +1,15 @@
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.http import HttpResponse, Http404
+from django.http import HttpResponseNotFound
+from django.shortcuts import render, redirect
+
 
 #Модуль для хранения представлений
 # Create your views here.
 
 def main(request):
-    return HttpResponse('<h1>Добро-пожаловать на CoolSite</h1>')
+    print(request.GET)
+    res = request.GET
+    return HttpResponse(f'<h1>Добро-пожаловать на CoolSite<br>{dict(res)}</h1>')
 
 def one(request):
     return HttpResponse('<h1> Вторая страница </h1><br>'
@@ -16,8 +20,11 @@ def two(request):
                         '<h3>Здесь пусто</h3>')
 
 def student(request, student_id):
-    if student_id > 13 or student_id < 1:
+    if student_id > 13:
         return HttpResponse(f' <h1> Такого студента у нас нет</h1>')
+    elif student_id < 1:
+        raise Http404()
+        #return redirect('', permanent=True)
     else:
         return HttpResponse(f' <h1> Студент № {student_id}</h1><br>'
                             f'<h2>{students[student_id]}</h2><br>'
@@ -27,6 +34,10 @@ def slug(request, slug1):
     return HttpResponse('<h1>Взгляни в адресную строку после "/"</h1>'
                         '<h2>Это метод Slug :3</h2>'
                         f'<h1>{slug1}</h1>')
+
+def pageNotFound(request, exceprion):
+
+    return HttpResponseNotFound('<h1>Страница не найдена</h1>')
 
 students = {
     1:"Андронов Назар",
@@ -59,5 +70,7 @@ geburgstag = {
     12: '15.08.2001',
     13: '32.13.2024'
 }
+
+
 
 
